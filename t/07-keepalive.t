@@ -189,7 +189,7 @@ connection must be closed
         content_by_lua '
             local http = require "resty.http"
             local httpc = http.new()
-            httpc:connect("127.0.0.1", 12345)
+            httpc:connect("127.0.0.1", 22345)
 
             local res, err = httpc:request{
                 version = 1.0,
@@ -221,7 +221,7 @@ connection must be closed
     }
 --- request
 GET /a
---- tcp_listen: 12345
+--- tcp_listen: 22345
 --- tcp_reply
 HTTP/1.0 200 OK
 Date: Fri, 08 Aug 2016 08:12:31 GMT

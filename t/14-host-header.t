@@ -78,7 +78,7 @@ Host: www.google.com
     error_log logs/error.log debug;
     resolver 8.8.8.8;
     server {
-        listen *:8080;
+        listen *:48080;
     }
 --- config
     location /lua {
@@ -86,7 +86,7 @@ Host: www.google.com
             local http = require "resty.http"
             local httpc = http.new()
 
-            local res, err = httpc:request_uri("http://127.0.0.1:8080")
+            local res, err = httpc:request_uri("http://127.0.0.1:48080")
         ';
     }
 --- request
@@ -94,7 +94,7 @@ GET /lua
 --- no_error_log
 [error]
 --- error_log
-Host: 127.0.0.1:8080
+Host: 127.0.0.1:48080
 
 
 === TEST 4: Non-default HTTPS port is added to Host header
@@ -103,7 +103,7 @@ Host: 127.0.0.1:8080
     error_log logs/error.log debug;
     resolver 8.8.8.8;
     server {
-        listen *:8080;
+        listen *:48080;
         listen *:8081 ssl;
         ssl_certificate ../html/test.crt;
         ssl_certificate_key ../html/test.key;
