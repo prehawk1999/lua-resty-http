@@ -188,7 +188,7 @@ end
 
 
 function _M.parse_uri(self, uri)
-    local m, err = ngx_re_match(uri, [[^(http[s]*)://([^:/]+)(?::(\d+))?(.*)]],
+    local m, err = ngx_re_match(uri, [[^(http[s]*)://([^:/\\#?]+)(?::(\d+))?(.*)]],
         "jo")
 
     if not m then
