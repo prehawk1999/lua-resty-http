@@ -3,7 +3,7 @@
 use Test::Nginx::Socket;
 use Cwd qw(cwd);
 
-plan tests => repeat_each() * (blocks() * 4);
+plan tests => repeat_each() * (blocks() * 4)    ;
 
 my $pwd = cwd();
 
